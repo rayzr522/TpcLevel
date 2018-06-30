@@ -28,7 +28,7 @@ Permission: `TpcLevel.command.reload`
 
 ## Installing
 
-Just grab the latest JAR off of the [releases page](https://github.com/Rayzr522/TpcLevels/releases)! **This plugin requires NametagEdit to be installed as well.**
+Just grab the latest JAR off of the [releases page](https://github.com/Rayzr522/TpcLevel/releases)! **This plugin requires NametagEdit to be installed as well.**
 
 ## Join Me
 
