@@ -31,6 +31,8 @@ public class TpcLevel extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
         getCommand("level").setExecutor(new CommandHandler(this));
+
+        recalculateGlobal();
     }
 
     public void reload() {
@@ -50,6 +52,10 @@ public class TpcLevel extends JavaPlugin {
 
     private File getFile(String path) {
         return new File(getDataFolder(), path);
+    }
+
+    public void recalculateGlobal() {
+        Bukkit.getOnlinePlayers().forEach(this::recalculateLevel);
     }
 
     public void recalculateLevel(Player player) {

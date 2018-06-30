@@ -51,7 +51,7 @@ public class CommandHandler implements CommandExecutor {
 
                 sender.sendMessage(plugin.tr("command.global.recalculating"));
 
-                Bukkit.getOnlinePlayers().forEach(plugin::recalculateLevel);
+                plugin.recalculateGlobal();
 
                 sender.sendMessage(plugin.tr("command.global.complete", Bukkit.getOnlinePlayers().size()));
 
