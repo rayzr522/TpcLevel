@@ -26,4 +26,4 @@ events:
 # An optional chat prefix to show your level
 chat-tag:
   enabled: false
-  format: '&2{LEVEL}'
+  format: "&8[&2{LEVEL}&8]&f "
