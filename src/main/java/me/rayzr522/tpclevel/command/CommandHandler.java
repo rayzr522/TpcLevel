@@ -80,6 +80,6 @@ public class CommandHandler implements CommandExecutor {
     }
 
     private void showUsage(CommandSender sender) {
-        sender.sendMessage(plugin.tr("command.help"));
+        sender.sendMessage(plugin.trRaw("command.help"));
     }
 }

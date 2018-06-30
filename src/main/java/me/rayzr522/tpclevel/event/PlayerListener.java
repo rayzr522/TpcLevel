@@ -81,7 +81,7 @@ public class PlayerListener implements Listener {
             return;
         }
 
-        if (plugin.calculateItemLevel(e.getCurrentItem()) > 0) {
+        if (plugin.calculateItemLevel(e.getCurrentItem()) > 0 || plugin.calculateItemLevel(e.getCursor()) > 0) {
             plugin.queueForUpdate((Player) e.getWhoClicked());
         }
     }

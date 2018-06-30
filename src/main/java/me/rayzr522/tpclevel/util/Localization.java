@@ -27,11 +27,11 @@ public class Localization {
         return ChatColor.translateAlternateColorCodes('&', prefix + prefixAddon);
     }
 
-    private String trRaw(String key, Object... formattingArgs) {
+    public String trRaw(String key, Object... formattingArgs) {
         String output = messages.getOrDefault(key, key);
 
         for (int i = 0; i < formattingArgs.length; i++) {
-            output = output.replace("{" + i + "}", Objects.toString(formattingArgs));
+            output = output.replace("{" + i + "}", Objects.toString(formattingArgs[i]));
         }
 
         return ChatColor.translateAlternateColorCodes('&', output);

@@ -144,4 +144,8 @@ public class TpcLevel extends JavaPlugin {
     public String tr(String key, Object... formattingArgs) {
         return localization.tr(key, formattingArgs);
     }
+
+    public String trRaw(String key, Object... formattingArgs) {
+        return localization.trRaw(key, formattingArgs);
+    }
 }
