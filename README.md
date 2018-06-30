@@ -2,6 +2,8 @@
 
 > A simple RPG plugin for calculating and displaying a player's level based on their equipment.
 
+This plugin was a rewrite for *alejandro123* and the TPC server (IP: `45.35.101.82:25594`).
+
 ## Commands
 
 ### `/level <self|global|reload|help>`
