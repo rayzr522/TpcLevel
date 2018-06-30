@@ -1,0 +1,10 @@
+name: TpcLevel
+main: me.rayzr522.tpclevel.TpcLevel
+version: ${project.version}
+description: ${project.description}
+depend: [NametagEdit]
+commands:
+   level:
+      description: "The main command for TpcLevel"
+      usage: "\u00A7cRayzr broke something!"
+      aliases: [lv, nivel]

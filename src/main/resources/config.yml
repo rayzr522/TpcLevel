@@ -1,0 +1,29 @@
+# The format of the player nametag suffix
+format: "&2 {LEVEL}"
+
+# Extra suffixes to apply to the player's nametag based on their level
+# For a suffix to apply, the player's average level must be between the min and the max
+# These suffixes are applied after the base nametag suffix
+levels:
+  1:
+    # The minimum required level to have this suffix
+    min: 15
+    # The maximum level that can have this suffix
+    max: 30
+    # The suffix to apply to the player's nametag
+    suffix: "&7[&5+&7]"
+  2:
+    min: 30
+    max: 55
+    suffix: "&7[&c+&7]"
+
+# Which events should cause a recalculation of the player's level?
+events:
+  player-join: true
+  item-drop: false
+  item-pickup: false
+
+# An optional chat prefix to show your level
+chat-tag:
+  enabled: false
+  format: '&2{LEVEL}'

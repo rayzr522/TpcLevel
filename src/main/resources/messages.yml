@@ -1,0 +1,20 @@
+prefix: "&8[&c*&8]&6 "
+
+error:
+  prefix-addon: "&c"
+  no-permission: "You need the permission '{0}' to do that!"
+  only-players: "Only players can use this command!"
+
+command:
+  reload:
+    reloaded: "Config reloaded."
+  global:
+    recalculating: "Recalculating all player levels..."
+    complete: "Recalculation completed on &e{0}&6 players."
+  self:
+    calculated: "Recalculated player level to be: &e{0}"
+  help: |
+    &6/level self &8- &fRecalculates your level.
+    &6/level global &8- &fRecalculates the level of every player on the server.
+    &6/level reload &8- &fReloads the configuration files.
+    &6/level help &8- &fShows this help message.
