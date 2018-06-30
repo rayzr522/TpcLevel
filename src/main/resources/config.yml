@@ -20,8 +20,8 @@ levels:
 # Which events should cause a recalculation of the player's level?
 events:
   player-join: true
-  item-drop: false
-  item-pickup: false
+  item-drop: true
+  item-pickup: true
 
 # An optional chat prefix to show your level
 chat-tag:
