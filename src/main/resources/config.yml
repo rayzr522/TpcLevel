@@ -1,6 +1,9 @@
 # The format of the player nametag suffix
 format: "&2 {LEVEL}"
 
+# The prefix that item level lore starts with
+level-lore-prefix: "&aLv Min&7: "
+
 # Extra suffixes to apply to the player's nametag based on their level
 # For a suffix to apply, the player's average level must be between the min and the max
 # These suffixes are applied after the base nametag suffix

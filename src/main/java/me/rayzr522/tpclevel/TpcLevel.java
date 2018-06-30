@@ -19,11 +19,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TpcLevel extends JavaPlugin {
-    private static final String LEVEL_LORE_PREFIX = ChatColor.GREEN + "Lv Min" + ChatColor.GRAY + ": ";
-
     private final Localization localization = new Localization();
     private final Map<UUID, Integer> levels = new HashMap<>();
     private final List<UUID> playersToUpdate = new ArrayList<>();
+
+    private String levelLorePrefix;
 
     @Override
     public void onEnable() {
@@ -40,6 +40,7 @@ public class TpcLevel extends JavaPlugin {
         reloadConfig();
 
         localization.load(getConfig("messages.yml"));
+        levelLorePrefix = getConfig().getString("level-lore-prefix");
     }
 
     private YamlConfiguration getConfig(String path) {
@@ -136,11 +137,11 @@ public class TpcLevel extends JavaPlugin {
 
         String firstLine = meta.getLore().get(0);
 
-        if (!firstLine.startsWith(LEVEL_LORE_PREFIX) || firstLine.contains(ChatColor.RED.toString())) {
+        if (!firstLine.startsWith(levelLorePrefix) || firstLine.contains(ChatColor.RED.toString())) {
             return 0;
         }
 
-        return Integer.parseInt(firstLine.substring(LEVEL_LORE_PREFIX.length()));
+        return Integer.parseInt(firstLine.substring(levelLorePrefix.length()));
     }
 
     public int getPlayerLevel(UUID id) {
