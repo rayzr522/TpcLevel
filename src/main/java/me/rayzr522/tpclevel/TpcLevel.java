@@ -40,7 +40,7 @@ public class TpcLevel extends JavaPlugin {
         reloadConfig();
 
         localization.load(getConfig("messages.yml"));
-        levelLorePrefix = getConfig().getString("level-lore-prefix");
+        levelLorePrefix = ChatColor.translateAlternateColorCodes('&', getConfig().getString("level-lore-prefix"));
     }
 
     private YamlConfiguration getConfig(String path) {
