@@ -85,21 +85,29 @@ public class TpcLevel extends JavaPlugin {
         total += armorLevels.stream().mapToInt(level -> level).sum();
 
         int average = count > 0 ? total / count : 0;
+        int offhandLevel = 0;
 
-        levels.put(player.getUniqueId(), average);
+        ItemStack offhandItem = player.getInventory().getItemInOffHand();
+        if (offhandItem != null && offhandItem.getType() == Material.DIAMOND_SWORD) {
+            offhandLevel = calculateItemLevel(offhandItem) / 10;
+        }
+
+        int playerLevel = average + offhandLevel;
+
+        levels.put(player.getUniqueId(), playerLevel);
 
         ConfigurationSection levelsSection = getConfig().getConfigurationSection("levels");
 
         String levelSuffix = levelsSection.getKeys(false).stream()
                 .filter(levelsSection::isConfigurationSection)
                 .map(levelsSection::getConfigurationSection)
-                .filter(section -> average >= section.getInt("min") && average <= section.getInt("max"))
+                .filter(section -> playerLevel >= section.getInt("min") && playerLevel <= section.getInt("max"))
                 .findFirst()
                 .map(section -> ChatColor.translateAlternateColorCodes('&', section.getString("suffix")))
                 .orElse("");
 
         String nametagFormat = ChatColor.translateAlternateColorCodes('&', getConfig().getString("format"))
-                .replaceAll("\\{LEVEL}", String.valueOf(average));
+                .replaceAll("\\{LEVEL}", String.valueOf(playerLevel));
 
         if (count >= 5) {
             nametagFormat += levelSuffix;
