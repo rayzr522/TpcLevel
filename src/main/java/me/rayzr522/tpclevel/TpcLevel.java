@@ -63,16 +63,17 @@ public class TpcLevel extends JavaPlugin {
         int total = 0;
         int count = 0;
 
-        int highestLevelItem = Arrays.stream(player.getInventory().getContents())
-                .filter(Objects::nonNull)
-                .filter(item -> item.getType() == Material.DIAMOND_SWORD)
-                .mapToInt(this::calculateItemLevel)
-                .filter(level -> level >= 0)
-                .max()
-                .orElse(0);
+        int highestLevelSword = getHighestLevelItem(player, Material.DIAMOND_SWORD);
 
-        total += highestLevelItem;
-        if (highestLevelItem > 0) {
+        total += highestLevelSword;
+        if (highestLevelSword > 0) {
+            count++;
+        }
+
+        int highestLevelBow = getHighestLevelItem(player, Material.BOW);
+
+        total += highestLevelBow;
+        if (highestLevelBow > 0) {
             count++;
         }
 
@@ -114,6 +115,16 @@ public class TpcLevel extends JavaPlugin {
         }
 
         NametagEdit.getApi().setNametag(player, NametagEdit.getApi().getNametag(player).getPrefix(), nametagFormat);
+    }
+
+    private int getHighestLevelItem(Player player, Material type) {
+        return Arrays.stream(player.getInventory().getContents())
+                .filter(Objects::nonNull)
+                .filter(item -> item.getType() == type)
+                .mapToInt(this::calculateItemLevel)
+                .filter(level -> level >= 0)
+                .max()
+                .orElse(0);
     }
 
     public void queueForUpdate(Player p) {
