@@ -89,7 +89,7 @@ public class TpcLevel extends JavaPlugin {
         int offhandLevel = 0;
 
         ItemStack offhandItem = player.getInventory().getItemInOffHand();
-        if (offhandItem != null && offhandItem.getType() == Material.DIAMOND_SWORD) {
+        if (offhandItem != null && (!getConfig().getBoolean("swords-in-offhand-only") || offhandItem.getType() == Material.DIAMOND_SWORD)) {
             offhandLevel = calculateItemLevel(offhandItem) / 10;
         }
 
